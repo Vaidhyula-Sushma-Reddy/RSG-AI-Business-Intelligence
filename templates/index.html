@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SalesLens | Sales Analytics Assistant</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css', v=4) }}">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header class="header">
+
+            <h1>SalesLens</h1>
+
+            <p class="subtitle">
+                Your Sales Data, Made Easy to Understand
+            </p>
+
+            <p class="subtitle" style="margin-top: 8px;">
+                Ask questions about your sales and get clear answers,
+                useful insights, and interactive charts.
+            </p>
+
+        </header>
+
+
+        <!-- Question Input -->
+        <section class="question-section">
+
+            <div class="question-box">
+
+                <input
+                    type="text"
+                    id="question"
+                    placeholder="Ask a question... e.g. Which product sold the most?"
+                    autocomplete="off"
+                    maxlength="300"
+                    aria-label="Enter your sales analytics question"
+                >
+
+                <button id="askButton" onclick="askQuestion()">
+                    Get Answer
+                </button>
+
+            </div>
+
+            <p class="input-hint">
+                Ask about revenue, products, categories, regions,
+                sales channels, or monthly sales.
+            </p>
+
+        </section>
+
+
+        <!-- Example Questions -->
+        <section class="examples">
+
+            <h3>Try These Questions</h3>
+
+            <div class="example-buttons">
+
+                <button onclick="useQuestion('What is the total revenue?')">
+                    Total Revenue
+                </button>
+
+                <button onclick="useQuestion('Which product generated the highest revenue?')">
+                    Best-Selling Product
+                </button>
+
+                <button onclick="useQuestion('Show monthly revenue trend')">
+                    Monthly Sales
+                </button>
+
+                <button onclick="useQuestion('Compare sales across regions')">
+                    Compare Regions
+                </button>
+
+                <button onclick="useQuestion('Which category generated the highest revenue?')">
+                    Top Category
+                </button>
+
+                <button onclick="useQuestion('Show the top 5 products by revenue')">
+                    Top 5 Products
+                </button>
+
+                <button onclick="useQuestion('Show revenue by sales channel')">
+                    Sales Channels
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Loading Message -->
+        <div id="loading" class="loading" style="display: none;">
+
+            <div class="spinner"></div>
+
+            <p>Analyzing your sales data...</p>
+
+        </div>
+
+
+        <!-- Results -->
+        <main id="result" class="result">
+
+            <div class="empty-state">
+
+                <h2>Welcome to SalesLens</h2>
+
+                <p>
+                    Your sales insights start here!
+                    Choose one of the example questions or type your own.
+                    Get easy-to-understand answers, tables, and charts
+                    based on your sales data.
+                </p>
+
+            </div>
+
+        </main>
+
+
+        <!-- Generated SQL -->
+        <section id="sqlSection" class="sql-section"
+                 style="display: none;">
+
+            <details>
+
+                <summary>View analysis details (SQL)</summary>
+
+                <pre id="sqlQuery"></pre>
+
+            </details>
+
+        </section>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='script.js', v=3) }}"></script>
+
+</body>
+
+</html>
