@@ -263,3 +263,16 @@ The current test suite contains 10 test cases covering:
 ## Author
 
 Developed as an AI Business Intelligence project for the RSG Research Private Limited Graduate Engineer Trainee assessment.
+
+## Troubleshooting
+
+If the application does not respond correctly, displays an error, or shows outdated content:
+
+1. Make sure the Flask backend is running.
+2. Open the application in your browser.
+3. Press **Ctrl + Shift + R** to perform a hard refresh.
+4. Try submitting your question again.
+
+A hard refresh reloads the page and its static files, including JavaScript and CSS, from the server.
+
+If the issue continues, check the terminal for backend errors and verify your Groq API key configuration.
